@@ -1,0 +1,935 @@
+@font-face {
+    font-family: 'CiutadellaRoundedW01';
+    src: url("../Ciutadella_Rounded_W01_Medium.ttf") format("truetype");
+}
+
+
+body{
+	background: none !important;
+    font-family: 'CiutadellaRoundedW01';
+}
+
+html{
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+#bankui {
+    background-color: #212832;
+    color: #fff;
+
+    margin-top: calc((1080px - 200px)/2);
+    margin-left: calc((1920px - 1440px)/2);
+
+    height: 200px;
+    width: 1440px;
+    border-radius: 5px;
+
+    display: none;
+    justify-items: center;
+    align-items: center;
+}
+
+.show-content {
+    opacity: 0;
+    transition: 0.1s linear opacity;
+    height: 810px;
+    width: 1440px;
+    display: flex;
+    flex-direction: row;
+}
+
+.disableSelection{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: 0;
+}
+
+.hidden{
+    display: none !important;
+}
+.header-title {
+    position: relative;
+    color:white;
+    top: -.5vh;
+}
+
+.img-spacer {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.income {
+    color: #92f075;
+    text-shadow:  2px 2px rgba(0, 0, 0, 0.05);
+}
+
+.addition {
+    color: #92f075;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.05);
+    font-size: 2vh;
+}
+
+.expense {
+    color: #f2a367;
+    text-shadow:  2px 2px rgba(0, 0, 0, 0.05);
+    font-size: 2vh;
+}
+
+p {
+    margin-bottom: 0.5rem;
+}
+
+.note {
+    margin: 0;
+}
+
+.account {
+    margin: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.deposit{
+    background: #92f075;
+    color: rgb(43, 43, 43) !important;
+    height: 2.5vh;
+    font-size: 10pt;
+    letter-spacing: .1vh;
+    border-radius: .3vh;
+    margin-left: -1vh;
+    padding: 0 10px;
+    border: none;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.137)
+}
+
+.withdraw{
+    background: #f2a367;
+    color: rgb(43, 43, 43) !important;
+    height: 2.5vh;
+    font-size: 10pt;
+    letter-spacing: .1vh;
+    border-radius: .3vh;
+    padding: 0 10px;
+    border: none;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.137)
+}
+
+.transfer{
+    background: #dfe0db;
+    color: rgb(43, 43, 43) !important;
+    height: 2.5vh;
+    font-size: 10pt;
+    letter-spacing: .1vh;
+    border-radius: .3vh;
+    margin-right: -1vh;
+    padding: 0 10px;
+    border: none;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.137)
+}
+
+.deposit:hover{
+    background: #82d669;
+    color: #000 !important;
+}
+
+.withdraw:hover{
+    background: #d9935d;
+    color: #000 !important;
+}
+
+.transfer:hover{
+    background: #c6c7c3;
+    color: #000 !important;
+}
+
+.cash {
+    position: absolute;
+    color: white;
+    font-size: 13.5pt;
+    bottom: 140px;
+    left: 255px;
+}
+
+#Transaction_Row{
+    position: relative;
+    height: 765px;
+    width: 1050px;
+    margin-left: 45px;
+    top: 20px;
+    overflow-y: auto;
+    /* background-color: #d9935d; */
+}
+
+.roda {
+    /* background-color: rgba(199, 203, 207, 0.425); */
+    width: 100%;
+    height: calc(100% - 45px);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#Player_Accounts {
+    position: relative;
+    height: 740px;
+    width: 330px;
+    left: 15px;
+    top: 20px;
+    overflow-y: auto;
+    /* background-color: #d9935d; */
+}
+
+.dark-modal, .modal-body, .modal-header, .modal-footer{
+    color: #fff;
+    background: #263646;
+    border: 0 !important;
+}
+
+.right{
+    float: right;
+    right: 0;
+}
+
+.title-card-1 {
+    position: relative;
+    top: -1vh;
+    font-size: 1.3vh;
+    left: -1vh;
+}
+
+.title-card-2 {
+    position: relative;
+    top: -2vh;
+    font-size: 1.3vh;
+    left: -1vh;
+}
+
+.title-card-3 {
+    position: relative;
+    top: -3vh;
+    font-size: 1.3vh;
+    left: -1vh;
+}
+
+.title-card-4 {
+    position: relative;
+    top: -3.7vh;
+    font-size: 1.3vh;
+    right: -1vh;
+}
+
+.title-card-5 {
+    position: relative;
+    top: -2.4vh;
+    font-size: 2vh;
+    right: -1vh;
+}
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 0;
+    color: transparent;
+    background-color: transparent;
+}
+
+.bgdark1 {
+    background-color: #30475c!important;
+    height: 16vh;
+}
+
+.bgdark2 {
+    background-color: #1e3956!important;
+    border: transparent;
+    border-width: 1px;
+    height: 135px;
+    border-radius: .3vh;
+    width: 100%;
+    border-style: solid;
+    margin-bottom: 15px;
+}
+
+.bgdark2.selected {
+    border: rgba(255, 255, 255, 0.5);
+    border-width: 1px;
+    border-style: solid;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.items-view {
+    display: none;
+}
+
+.full-white {
+    position: absolute;
+    display: none;
+    height: 810px;
+    width: 1440px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.308);
+}
+
+/* Deposit */
+
+.deposit-container {
+    position: absolute;
+    display: none;
+
+    top: calc((1080px - 240px)/2);
+    left: calc((1920px - 600px)/2);
+
+    width: 600px;
+    height: 240px;
+    border-radius: .3vh;
+
+    padding-left: 150px;
+
+    background-color: #30475c;
+}
+
+.deposit-account {
+    position: relative;
+
+    top: 1vh;
+
+    color: white;
+    font-size: 18pt;
+    text-align: center;
+    width: 300px;
+    height: 40px;
+}
+
+.deposit-title {
+    position: absolute;
+
+
+    top: 5.5vh;
+
+    color: white;
+    font-size: 1.2vh;
+    opacity: .5;
+}
+
+#deposit-amount {
+    position: absolute;
+
+    top: 7vh;
+
+    width: 300px;
+
+    background-color: rgba(197, 39, 39, 0);
+    border-bottom: 0.2vh solid white;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    outline: none;
+    color: white;
+    text-indent: 1.5vh;
+    text-align: left;
+    opacity: .5;
+}
+
+#deposit-amount:focus {
+    opacity: 1;
+}
+
+#deposit-icon {
+    position: absolute;
+    top: 7.6vh;
+    color: white;
+    font-size: 1.3vh;
+    opacity: .5;
+}
+
+.deposit-title2 {
+    position: absolute;
+
+    top: 11.5vh;
+
+    color: white;
+    font-size: 1.2vh;
+    opacity: .5;
+}
+
+#deposit-comment {
+    position: absolute;
+
+    top: 13vh;
+
+    width: 300px;
+
+    background-color: rgba(197, 39, 39, 0);
+    border-bottom: 0.2vh solid white;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    outline: none;
+    color: white;
+    text-indent: 1.5vh;
+    text-align: left;
+    opacity: .5;
+}
+
+#deposit-comment:focus {
+    opacity: 1;
+}
+
+#deposit-icon2 {
+    position: absolute;
+    top: 13.6vh;
+    color: white;
+    font-size: 1.3vh;
+    opacity: .5;
+}
+
+.deposit-submit {
+    border: none;
+    height: 2.5vh;
+    background-color: #92f075;
+    border-radius: 0.3vh;
+    transition: all .15s ease-in-out;
+
+    font-size: 1vh;
+    letter-spacing: .1vh;
+}
+
+.deposit-submit:hover {
+    background-color: #82d669;
+}
+
+.deposit-decline {
+    border: none;
+    height: 2.5vh;
+    background-color: #f2a367;
+    border-radius: 0.3vh;
+    transition: all .15s ease-in-out;
+
+    font-size: 1vh;
+    letter-spacing: .1vh;
+}
+
+.deposit-decline:hover {
+    background-color: #d9935d;
+}
+
+/* Withdrawl */
+
+.withdraw-container {
+    position: absolute;
+    display: none;
+
+    top: calc((1080px - 240px)/2);
+    left: calc((1920px - 600px)/2);
+
+    width: 600px;
+    height: 240px;
+    border-radius: .3vh;
+
+    padding-left: 150px;
+
+    background-color: #30475c;
+}
+
+.withdraw-account {
+    position: relative;
+
+    top: 1vh;
+
+    color: white;
+    font-size: 18pt;
+    text-align: center;
+    width: 300px;
+    height: 40px;
+}
+
+.withdraw-title {
+    position: absolute;
+
+    top: 5.5vh;
+
+    color: white;
+    font-size: 1.2vh;
+    opacity: .5;
+}
+
+#withdraw-amount {
+    position: absolute;
+
+    top: 7vh;
+
+    width: 300px;
+
+    background-color: rgba(197, 39, 39, 0);
+    border-bottom: 0.2vh solid white;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    outline: none;
+    color: white;
+    text-indent: 1.5vh;
+    text-align: left;
+    opacity: .5;
+}
+
+#withdraw-amount:focus {
+    opacity: 1;
+}
+
+#withdraw-icon {
+    position: absolute;
+    top: 7.6vh;
+    color: white;
+    font-size: 1.3vh;
+    opacity: .5;
+}
+
+.withdraw-title2 {
+    position: absolute;
+
+    top: 11.5vh;
+
+    color: white;
+    font-size: 1.2vh;
+    opacity: .5;
+}
+
+#withdraw-comment {
+    position: absolute;
+
+    top: 13vh;
+
+    width: 300px;
+
+    background-color: rgba(197, 39, 39, 0);
+    border-bottom: 0.2vh solid white;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    outline: none;
+    color: white;
+    text-indent: 1.5vh;
+    text-align: left;
+    opacity: .5;
+}
+
+#withdraw-comment:focus {
+    opacity: 1;
+}
+
+#withdraw-icon2 {
+    position: absolute;
+    top: 13.6vh;
+    color: white;
+    font-size: 1.3vh;
+    opacity: .5;
+}
+
+.withdraw-submit {
+    border: none;
+    height: 2.5vh;
+    background-color: #92f075;
+    border-radius: 0.3vh;
+    transition: all .15s ease-in-out;
+
+    font-size: 1vh;
+    letter-spacing: .1vh;
+}
+
+.withdraw-submit:hover {
+    background-color: #82d669;
+}
+
+.withdraw-decline {
+    border: none;
+    height: 2.5vh;
+    background-color: #f2a367;
+    border-radius: 0.3vh;
+    transition: all .15s ease-in-out;
+
+    font-size: 1vh;
+    letter-spacing: .1vh;
+}
+
+.withdraw-decline:hover {
+    background-color: #d9935d;
+}
+
+/* Transfer */
+
+.transfer-container {
+    position: absolute;
+    display: none;
+
+    top: calc((1080px - 360px)/2);
+    left: calc((1920px - 600px)/2);
+
+    width: 600px;
+    height: 360px;
+    border-radius: .3vh;
+
+    padding-left: 150px;
+
+    background-color: #30475c;
+}
+
+.transfer-account {
+    position: relative;
+
+    top: 1vh;
+
+    color: white;
+    font-size: 18pt;
+    text-align: center;
+    width: 300px;
+    height: 40px;
+}
+
+.transfer-title {
+    position: absolute;
+
+    top: 5.5vh;
+
+    color: white;
+    font-size: 1.2vh;
+    opacity: .5;
+}
+
+#transfer-amount {
+    position: absolute;
+
+    top: 7vh;
+
+    width: 300px;
+
+    background-color: rgba(197, 39, 39, 0);
+    border-bottom: 0.2vh solid white;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    outline: none;
+    color: white;
+    text-indent: 1.5vh;
+    text-align: left;
+    opacity: .5;
+}
+
+#transfer-amount:focus {
+    opacity: 1;
+}
+
+#transfer-icon {
+    position: absolute;
+    top: 7.6vh;
+    color: white;
+    font-size: 1.3vh;
+    opacity: .5;
+}
+
+.transfer-title2 {
+    position: absolute;
+
+    top: 11.5vh;
+
+    color: white;
+    font-size: 1.2vh;
+    opacity: .5;
+}
+
+#transfer-comment {
+    position: absolute;
+
+    top: 13vh;
+
+    width: 300px;
+
+    background-color: rgba(197, 39, 39, 0);
+    border-bottom: 0.2vh solid white;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    outline: none;
+    color: white;
+    text-indent: 1.5vh;
+    text-align: left;
+    opacity: .5;
+}
+
+#transfer-comment:focus {
+    opacity: 1;
+}
+
+#transfer-icon2 {
+    position: absolute;
+    top: 13.6vh;
+    color: white;
+    font-size: 1.3vh;
+    opacity: .5;
+}
+
+.transfer-title3 {
+    position: absolute;
+
+    top: 17.5vh;
+
+    color: white;
+    font-size: 1.2vh;
+    opacity: .5;
+}
+
+#transfer-id {
+    position: absolute;
+
+    top: 19vh;
+
+    width: 300px;
+
+    background-color: rgba(197, 39, 39, 0);
+    border-bottom: 0.2vh solid white;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    outline: none;
+    color: white;
+    text-indent: 1.5vh;
+    text-align: left;
+    opacity: .5;
+}
+
+#transfer-id:focus {
+    opacity: 1;
+}
+
+#transfer-icon3 {
+    position: absolute;
+    top: 19.6vh;
+    color: white;
+    font-size: 1.3vh;
+    opacity: .5;
+}
+
+.transfer-title4 {
+    position: absolute;
+
+    top: 23.5vh;
+
+    color: white;
+    font-size: 1.2vh;
+    opacity: .5;
+}
+
+#transfer-citizenid {
+    position: absolute;
+
+    top: 25vh;
+
+    width: 300px;
+
+    background-color: rgba(197, 39, 39, 0);
+    border-bottom: 0.2vh solid white;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    outline: none;
+    color: white;
+    text-indent: 1.5vh;
+    text-align: left;
+    opacity: .5;
+}
+
+#transfer-citizenid:focus {
+    opacity: 1;
+}
+
+#transfer-icon4 {
+    position: absolute;
+    top: 25.6vh;
+    color: white;
+    font-size: 1.3vh;
+    opacity: .5;
+}
+
+.transfer-submit {
+    border: none;
+    height: 2.5vh;
+    background-color: #92f075;
+    border-radius: 0.3vh;
+    transition: all .15s ease-in-out;
+
+    font-size: 1vh;
+    letter-spacing: .1vh;
+}
+
+.transfer-submit:hover {
+    background-color: #82d669;
+}
+
+.transfer-decline {
+    border: none;
+    height: 2.5vh;
+    background-color: #f2a367;
+    border-radius: 0.3vh;
+    transition: all .15s ease-in-out;
+
+    font-size: 1vh;
+    letter-spacing: .1vh;
+}
+
+.transfer-decline:hover {
+    background-color: #d9935d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.lds-spinner {
+    color: official;
+    display: none;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-spinner div {
+    transform-origin: 40px 40px;
+    animation: lds-spinner 1.2s linear infinite;
+  }
+  .lds-spinner div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 37px;
+    width: 6px;
+    height: 18px;
+    border-radius: 20%;
+    background: #fff;
+  }
+  .lds-spinner div:nth-child(1) {
+    transform: rotate(0deg);
+    animation-delay: -1.1s;
+  }
+  .lds-spinner div:nth-child(2) {
+    transform: rotate(30deg);
+    animation-delay: -1s;
+  }
+  .lds-spinner div:nth-child(3) {
+    transform: rotate(60deg);
+    animation-delay: -0.9s;
+  }
+  .lds-spinner div:nth-child(4) {
+    transform: rotate(90deg);
+    animation-delay: -0.8s;
+  }
+  .lds-spinner div:nth-child(5) {
+    transform: rotate(120deg);
+    animation-delay: -0.7s;
+  }
+  .lds-spinner div:nth-child(6) {
+    transform: rotate(150deg);
+    animation-delay: -0.6s;
+  }
+  .lds-spinner div:nth-child(7) {
+    transform: rotate(180deg);
+    animation-delay: -0.5s;
+  }
+  .lds-spinner div:nth-child(8) {
+    transform: rotate(210deg);
+    animation-delay: -0.4s;
+  }
+  .lds-spinner div:nth-child(9) {
+    transform: rotate(240deg);
+    animation-delay: -0.3s;
+  }
+  .lds-spinner div:nth-child(10) {
+    transform: rotate(270deg);
+    animation-delay: -0.2s;
+  }
+  .lds-spinner div:nth-child(11) {
+    transform: rotate(300deg);
+    animation-delay: -0.1s;
+  }
+  .lds-spinner div:nth-child(12) {
+    transform: rotate(330deg);
+    animation-delay: 0s;
+  }
+  @keyframes lds-spinner {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
